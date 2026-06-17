@@ -1,0 +1,8 @@
+FROM ghcr.io/pterodactyl/yolks:java_21
+USER root
+RUN apt-get update && \
+    apt-get install -y git git-lfs && \
+    git lfs install && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+USER container
